@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perú Evolutivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO ── */
+.hero{min-height:78vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:9rem 2rem 5rem}
+.hero-bg-parallax{position:absolute;inset:-20%;background:
+  radial-gradient(ellipse at 65% 40%,rgba(45,90,39,0.22) 0%,transparent 55%),
+  radial-gradient(ellipse at 20% 75%,rgba(184,134,11,0.1) 0%,transparent 50%),
+  linear-gradient(160deg,var(--negro) 0%,var(--carbon) 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,90,39,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,90,39,0.04) 1px,transparent 1px);background-size:55px 55px}
+/* Blob decorativo */
+.hero-blob{position:absolute;bottom:-5rem;left:-5rem;width:500px;height:500px;background:radial-gradient(circle,rgba(45,90,39,0.07),transparent 65%);border-radius:50%;pointer-events:none}
+.hero-eyebrow{position:relative;font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--dorado-claro);margin-bottom:1.2rem;opacity:0;animation:heroFadeUp 0.9s 0.2s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title{position:relative;font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,10vw,8rem);line-height:0.95;color:var(--crema);margin-bottom:0.6rem;font-weight:400;opacity:0;animation:heroFadeUp 0.9s 0.35s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title em{color:var(--verde-brillo);font-style:italic}
+.hero-subtitle{position:relative;font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.4rem);color:var(--dorado-claro);font-style:italic;margin-bottom:1.8rem;opacity:0;animation:heroFadeUp 0.9s 0.5s cubic-bezier(.16,1,.3,1) forwards}
+.hero-desc{position:relative;max-width:480px;font-size:0.88rem;line-height:1.85;color:var(--humo);margin-bottom:2.5rem;opacity:0;animation:heroFadeUp 0.9s 0.65s cubic-bezier(.16,1,.3,1) forwards}
+.hero-cta{position:relative;display:inline-block;padding:0.8rem 2.5rem;border:1px solid var(--dorado);color:var(--dorado-brillo);font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;background:transparent;transition:all 0.4s cubic-bezier(.16,1,.3,1);text-decoration:none;border-radius:var(--r-pill);opacity:0;animation:heroFadeUp 0.9s 0.8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-cta:hover{background:rgba(184,134,11,0.12);border-color:var(--dorado-brillo);transform:translateY(-2px)}
+/* Scroll indicator */
+.hero-scroll{position:absolute;bottom:2rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:0.4rem;opacity:0;animation:heroFadeUp 1s 1.2s ease forwards}
+.hero-scroll span{font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--humo);opacity:0.4}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(184,134,11,0.5),transparent);animation:scrollPulse 2s 1.5s ease-in-out infinite}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
+
+/* ── SECCIÓN EVOLUCIÓN ── */
+#evolucion{background:var(--carbon);padding:7rem 3rem;position:relative;overflow:hidden}
+#evolucion::before{content:'';position:absolute;right:-8rem;top:-8rem;width:500px;height:500px;background:radial-gradient(circle,rgba(45,90,39,0.07),transparent 65%);border-radius:50%;pointer-events:none}
+.evolucion-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.evolucion-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:1rem}
+.intro-body{font-size:0.92rem;line-height:1.95;color:var(--humo)}
+.intro-body p+p{margin-top:1.1rem}
+.intro-body strong{color:var(--crema);font-weight:500}
+.intro-cite{font-size:0.72rem;color:var(--humo);opacity:0.4;margin-top:0.4rem;font-style:italic}
+.concept-cards{display:flex;flex-direction:column;gap:0.7rem}
+.concept-card{border-left:2px solid var(--verde);padding:0.9rem 1.2rem;background:rgba(45,90,39,0.07);border-radius:0 var(--r-md) var(--r-md) 0;transition:background 0.3s,border-color 0.3s}
+.concept-card:hover{background:rgba(45,90,39,0.13);border-color:var(--verde-claro)}
+.concept-card h4{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--verde-brillo);margin-bottom:0.35rem}
+.concept-card p{font-size:0.82rem;line-height:1.65;color:var(--humo)}
+.darwin-quote{margin-top:2rem;padding:1.4rem 1.6rem;border:1px solid rgba(184,134,11,0.18);background:rgba(184,134,11,0.04);border-radius:var(--r-lg)}
+.darwin-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--dorado-claro);line-height:1.65;margin-bottom:0.5rem}
+.darwin-quote cite{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--humo);opacity:0.5}
+/* Párrafos con imagen intercalada */
+.parr-img-row{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(201,191,173,0.07)}
+.parr-img-row.reverse{direction:rtl}
+.parr-img-row.reverse>*{direction:ltr}
+.parr-img-block{width:100%;aspect-ratio:3/2;border-radius:var(--r-xl);overflow:hidden;background:var(--oscuro);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,191,173,0.08)}
+.parr-img-block img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:transform 0.6s cubic-bezier(.16,1,.3,1)}
+.parr-img-block:hover img{transform:scale(1.03)}
+.parr-img-placeholder{text-align:center;padding:1rem}
+.parr-img-placeholder span{font-size:2.5rem;opacity:0.2;display:block;margin-bottom:0.4rem}
+.parr-img-placeholder p{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--humo);opacity:0.2}
+.parr-img-caption{font-size:0.62rem;color:var(--humo);opacity:0.35;margin-top:0.5rem;font-style:italic;text-align:center}
+
+/* ── ÍNDICE ANIMALES ── */
+#animales{background:var(--oscuro);padding:7rem 3rem}
+.animales-inner{max-width:1100px;margin:0 auto}
+.region-pills{display:flex;gap:0.7rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.pill{padding:0.35rem 1.2rem;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:1px solid;transition:all 0.3s cubic-bezier(.16,1,.3,1);background:transparent;border-radius:var(--r-pill)}
+.pill-sierra{border-color:rgba(184,134,11,0.35);color:var(--dorado-claro)}
+.pill-sierra.active,.pill-sierra:hover{background:rgba(184,134,11,0.12);border-color:var(--dorado)}
+.pill-selva{border-color:rgba(45,90,39,0.45);color:var(--verde-brillo)}
+.pill-selva.active,.pill-selva:hover{background:rgba(45,90,39,0.18);border-color:var(--verde-claro)}
+.pill-costa{border-color:rgba(55,138,221,0.35);color:#7bb8f0}
+.pill-costa.active,.pill-costa:hover{background:rgba(55,138,221,0.1);border-color:#378add}
+.pill-all{border-color:rgba(201,191,173,0.25);color:var(--humo)}
+.pill-all.active,.pill-all:hover{background:rgba(201,191,173,0.07);border-color:var(--crema)}
+.animales-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+.animal-card{background:var(--medio);border:1px solid rgba(201,191,173,0.08);transition:all 0.4s cubic-bezier(.16,1,.3,1);text-decoration:none;display:flex;flex-direction:column;border-radius:var(--r-xl);overflow:hidden}
+.animal-card:hover{border-color:rgba(184,134,11,0.35);transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
+.animal-card.hidden{display:none}
+.ac-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--oscuro);display:flex;align-items:center;justify-content:center;position:relative;cursor:zoom-in}
+.ac-img>img:first-child{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.4s,transform 0.6s cubic-bezier(.16,1,.3,1)}
+.animal-card:hover .ac-img>img:first-child{opacity:1;transform:scale(1.04)}
+/* Placeholder cuando no hay foto: icono centrado grande */
+.ac-img-placeholder{display:none;width:100%;height:100%;align-items:center;justify-content:center;background:var(--oscuro)}
+.ac-icon-solo{width:55%;height:55%;object-fit:contain;mix-blend-mode:screen;filter:brightness(0.85);transition:transform 0.3s}
+.animal-card:hover .ac-icon-solo{transform:scale(1.08)}
+/* Badge icono esquina inferior derecha sobre la foto */
+.ac-icon-overlay{position:absolute;bottom:0.6rem;right:0.7rem;width:26%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:rgba(10,12,8,0.5);border-radius:50%;backdrop-filter:blur(4px);border:1px solid rgba(184,134,11,0.2);transition:all 0.3s;pointer-events:none}
+.animal-card:hover .ac-icon-overlay{border-color:rgba(184,134,11,0.5);background:rgba(10,12,8,0.7)}
+.ac-icon-badge{width:70%;height:70%;object-fit:contain;mix-blend-mode:screen;filter:brightness(1.1)}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.95);align-items:center;justify-content:center;flex-direction:column;gap:1rem;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:80vh;object-fit:contain;border-radius:var(--r-lg)}
+.lightbox-caption{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--humo);opacity:0.5}
+.lightbox-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.4;cursor:pointer;background:none;border:none;transition:opacity 0.2s}
+.lightbox-close:hover{opacity:1}
+.ac-body{padding:1.1rem 1.2rem;flex:1}
+.ac-nombre{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--crema);margin-bottom:0.12rem;margin-top:0.5rem}
+.ac-sci{font-size:0.68rem;font-style:italic;color:var(--humo);opacity:0.45}
+.ac-footer{padding:0.8rem 1.2rem;border-top:1px solid rgba(201,191,173,0.06);display:flex;justify-content:space-between;align-items:center}
+.ac-link{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dorado-claro);opacity:0.8}
+.ac-arrow{color:var(--dorado-claro);transition:transform 0.3s cubic-bezier(.16,1,.3,1)}
+.animal-card:hover .ac-arrow{transform:translateX(5px)}
+
+/* ── CONCIENTIZACIÓN ── */
+#conciencia{background:var(--negro);padding:8rem 3rem;position:relative;overflow:hidden}
+#conciencia::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(45,90,39,0.1),transparent 60%)}
+.conciencia-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:3rem 0}
+.stat-box{padding:2rem 1rem;border:1px solid rgba(201,191,173,0.09);border-radius:var(--r-xl);background:rgba(255,255,255,0.02);transition:border-color 0.3s,background 0.3s}
+.stat-box:hover{border-color:rgba(184,134,11,0.25);background:rgba(184,134,11,0.04)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--dorado-brillo);line-height:1}
+.stat-label{font-size:0.7rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--humo);margin-top:0.5rem;opacity:0.6;line-height:1.55}
+.conciencia-body{font-size:0.9rem;line-height:1.9;color:var(--humo);max-width:650px;margin:0 auto}
+.conciencia-body p+p{margin-top:1rem}
+.amenaza-list{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:2.5rem auto;max-width:680px;text-align:left}
+.amenaza-item{display:flex;gap:0.8rem;align-items:flex-start;padding:1rem 1.1rem;border:1px solid rgba(201,191,173,0.08);background:rgba(201,191,173,0.02);border-radius:var(--r-lg);transition:border-color 0.3s,background 0.3s}
+.amenaza-item:hover{border-color:rgba(201,191,173,0.15);background:rgba(201,191,173,0.04)}
+.amenaza-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.amenaza-text{font-size:0.8rem;color:var(--humo);line-height:1.55}
+.amenaza-text strong{color:var(--crema);font-weight:500;display:block;margin-bottom:0.2rem}
+
+@media(max-width:768px){
+  #evolucion,#animales,#conciencia{padding:4.5rem 1.5rem}
+  .evolucion-grid{grid-template-columns:1fr;gap:2.5rem}
+  .parr-img-row{grid-template-columns:1fr;gap:2rem}
+  .parr-img-row.reverse{direction:ltr}
+  .stat-row,.amenaza-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Perú Evolutivo</a>
+  <div class="nav-links">
+    <a href="#evolucion">La Evolución</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-btn">Las Especies ▾</button>
+      <div class="dropdown-menu">
+        <div class="dropdown-region">Sierra</div>
+        <a href="condor.html">🦅 Cóndor Andino</a>
+        <a href="oso.html">🐻 Oso de Anteojos</a>
+        <a href="vicuna.html">🦙 Vicuña</a>
+        <div class="dropdown-sep"></div>
+        <div class="dropdown-region">Selva</div>
+        <a href="delfin.html">🐬 Delfín Rosado</a>
+        <a href="pez.html">⚡ Pez Eléctrico</a>
+        <a href="anaconda.html">🐍 Anaconda</a>
+        <a href="jaguar.html">🐆 Jaguar</a>
+        <a href="caiman.html">🐊 Caimán Negro</a>
+        <div class="dropdown-sep"></div>
+        <div class="dropdown-region">Costa</div>
+        <a href="leon.html">🦭 León Marino</a>
+        <a href="zorro.html">🦊 Zorro Costeño</a>
+      </div>
+    </div>
+    <a href="#conciencia">Biodiversidad</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-parallax"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-blob"></div>
+  <p class="hero-eyebrow">Proyecto Personal IB · Ignacio Arias · 2026</p>
+  <h1 class="hero-title"><em>Perú</em><br>Evolutivo</h1>
+  <p class="hero-subtitle">Millones de años escritos en cada especie</p>
+  <p class="hero-desc">Diez animales peruanos, tres regiones, y la historia de cómo la vida se transforma a lo largo del tiempo.</p>
+  <a class="hero-cta" href="#evolucion">Explorar</a>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LA EVOLUCIÓN -->
+<section id="evolucion">
+  <div class="evolucion-inner">
+    <p class="section-tag reveal">Sección 1 · Fundamentos</p>
+    <h2 class="section-title reveal d1">La Teoría de la <em>Evolución</em></h2>
+
+    <!-- PÁRRAFOS 1 y 2 + imagen Darwin/Galápagos -->
+    <div class="parr-img-row reveal d2">
+      <div class="intro-body">
+        <p>La naturaleza cuenta con una capacidad que, a primera vista, parece casi imposible: la de transformar sus criaturas. No de un día para otro, sino a lo largo de millones de generaciones, moldeando cada rasgo, cada comportamiento y cada estructura biológica, todo en respuesta a su entorno. Este proceso, conocido como evolución, fue descrito por primera vez por el naturalista británico Charles Darwin, quien tras un viaje a las Islas Galápagos, publicó en 1859 su más grande obra <em>"El origen de las especies"</em>, sentando así las bases de la biología moderna (Darwin, 1859, pp. 382-383).</p>
+        <p>En su travesía, iniciada en 1831 a bordo del HMS Beagle, Darwin recorrió parte de Sudamérica y las Islas Galápagos, donde observó que distintas especies de pinzones presentaban picos variados, cada uno de ellos adaptado al tipo de alimento disponible en su respectiva isla. Esta observación lo llevó a concluir que dichas aves habían evolucionado poco a poco en respuesta a las condiciones de su entorno, convirtiéndose así en una de las primeras evidencias concretas de la selección natural en acción. Estas conclusiones, junto a años de investigación posterior, culminaron en la publicación de su obra en 1859 (National Geographic, 2023, párr. 2-3).</p>
+        <div class="darwin-quote" style="margin-top:1.5rem">
+          <blockquote>"No es la especie más fuerte la que sobrevive, ni la más inteligente, sino la que responde mejor al cambio."</blockquote>
+          <cite>— Charles Darwin, El origen de las especies (1859)</cite>
+        </div>
+      </div>
+      <!-- FOTO: reemplaza img/darwin-galapagos.jpg con tu imagen -->
+      <div>
+        <div class="parr-img-block">
+          <img src="img/darwin-galapagos.jpg" alt="Darwin y las Galápagos" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="parr-img-placeholder" style="display:none">
+            <span>🐦</span>
+            <p>Foto · img/darwin-galapagos.jpg</p>
+            <p style="margin-top:0.3rem;font-size:0.55rem;opacity:0.5">Sugerencia: pinzones de Galápagos o retrato de Darwin</p>
+          </div>
+        </div>
+        <p class="parr-img-caption">📷 National Geographic (2023)</p>
+      </div>
+    </div>
+
+    <!-- PÁRRAFO 3 + imagen tiempo geológico + conceptos clave -->
+    <div class="parr-img-row reverse reveal d1">
+      <div>
+        <div class="parr-img-block">
+          <img src="img/tiempo-geologico.jpg" alt="Tiempo geológico" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="parr-img-placeholder" style="display:none">
+            <span>🌋</span>
+            <p>Foto · img/tiempo-geologico.jpg</p>
+          </div>
+        </div>
+        <p class="parr-img-caption">📷 Stirton, B. / National Geographic (2013)</p>
+      </div>
+      <div class="intro-body">
+        <p>Cabe aclarar que para que una especie evolucione, no solo deben existir condiciones adversas que la obliguen a adaptarse, sino que este proceso debe ocurrir a lo largo de millones de años, puesto que el cambio no se da de un momento a otro: son pequeñas modificaciones en el ADN que, acumuladas generación tras generación, terminan produciendo cambios visibles. Es en parte por esto, y por el temor a no contar con evidencia suficiente para sustentar una teoría tan disruptiva para su época, que Darwin tardó casi 20 años en publicar el resultado de sus investigaciones (National Geographic, 2023, párr. 4). Es precisamente por ello que la evolución de las especies peruanas resulta tan fascinante: especies sometidas a condiciones extraordinariamente diversas culminaron en una fauna de riqueza inigualable.</p>
+        <p style="margin-top:1.5rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dorado-claro);opacity:0.7">Conceptos clave</p>
+        <div class="concept-cards" style="margin-top:0.8rem">
+          <div class="concept-card"><h4>Selección Natural</h4><p>Mecanismo evolutivo que sostiene que los individuos con adaptaciones más favorables a su entorno tienden a sobrevivir y reproducirse más, transmitiendo dichos rasgos a su descendencia.</p></div>
+          <div class="concept-card"><h4>Especiación</h4><p>Proceso mediante el cual dos o más grupos de una misma especie, por factores como el aislamiento geográfico, terminan evolucionando por separado hasta convertirse en especies totalmente distintas e incapaces de reproducirse entre sí.</p></div>
+          <div class="concept-card"><h4>Adaptación</h4><p>Característica física, fisiológica o conductual que una especie ha desarrollado a lo largo de generaciones mediante la selección natural, permitiéndole sobrevivir y prosperar en su entorno.</p></div>
+          <div class="concept-card"><h4>Ancestro Común</h4><p>Individuo del cual descienden evolutivamente dos o más especies distintas. Sostiene que todas las especies tienen un ancestro común, mostrando cómo algunas son más cercanas entre sí que otras dependiendo de cuándo divergieron sus linajes, siendo así la base del árbol filogenético.</p></div>
+          <div class="concept-card"><h4>Filogenia</h4><p>Estudio de las relaciones evolutivas entre especies, demostrando cuáles comparten ancestros comunes y cuándo divergieron, normalmente representado a través de árboles filogenéticos.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PÁRRAFO 4 + imagen Perú biodiversidad -->
+    <div class="parr-img-row reveal d2">
+      <div class="intro-body">
+        <p>En números, esta riqueza es contundente: el Perú cuenta con 559 especies de mamíferos, 1857 de aves, 469 de reptiles y más de 1200 especies de peces en sus cuencas hidrográficas continentales, además de aproximadamente 1090 especies de peces marinos (MINAM, 2019, p. 28). Esta extraordinaria diversidad es resultado directo de sus cuatro grandes regiones naturales: la costa desértica, la sierra andina, la vasta selva amazónica y el mar peruano. Cada una de ellas moldeada por factores distintos, como su ubicación tropical, su compleja orografía andina y la influencia de la Corriente de Humboldt en el mar, sometiendo a su fauna a presiones evolutivas radicalmente distintas a lo largo de millones de años (MINAM, 2019, p. 10).</p>
+      </div>
+      <div>
+        <div class="parr-img-block">
+          <img src="img/peru-biodiversidad.jpg" alt="Biodiversidad peruana" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <div class="parr-img-placeholder" style="display:none">
+            <span>🌿</span>
+            <p>Foto · img/peru-biodiversidad.jpg</p>
+          </div>
+        </div>
+        <p class="parr-img-caption">📷 Del Águila, M. / WWF-US (s.f.)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ÁRBOL FILOGENÉTICO -->
+<section id="filogenia" style="background:var(--negro);padding:6rem 3rem">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag reveal">Sección 1.5 · Filogenia</p>
+    <h2 class="section-title reveal d1">Árbol <em>filogenético</em></h2>
+    <p class="reveal d2" style="font-size:0.88rem;line-height:1.85;color:var(--humo);max-width:600px;margin-bottom:2.5rem">Relaciones evolutivas entre las diez especies peruanas, organizadas por caracteres biológicos clave. Pasa el cursor sobre cada animal para ver datos clave o haz clic para ir a su sección.</p>
+    <div class="reveal d3" style="position:relative;width:100%;border-radius:1.5rem;overflow:hidden;border:1px solid rgba(201,191,173,0.08);cursor:zoom-in" onclick="abrirArbol()">
+      <img id="arbol-img" src="img/arbol-filogenetico.png" alt="Árbol filogenético de 10 animales peruanos" style="width:100%;display:block">
+      <!-- HOTSPOTS — coordenadas medidas sobre imagen 1456x816px -->
+      <a href="anaconda.html" class="arbol-spot" style="left:17.6%;top:33%;transform:translate(-50%,-50%)" data-tip="🐍 Anaconda verde — Vivípara, inusual para reptiles. La serpiente más pesada del mundo." onclick="event.stopPropagation()"></a>
+      <a href="caiman.html" class="arbol-spot" style="left:35.6%;top:33%;transform:translate(-50%,-50%)" data-tip="🐊 Caimán negro — Ovíparo. El mayor depredador amazónico. Plan corporal sin cambios en 80 millones de años." onclick="event.stopPropagation()"></a>
+      <a href="pez.html" class="arbol-spot" style="left:40.6%;top:52%;transform:translate(-50%,-50%)" data-tip="⚡ Anguila eléctrica — Electrogenesis. Genera hasta 860V. Ejemplo icónico de evolución convergente." onclick="event.stopPropagation()"></a>
+      <a href="leon.html" class="arbol-spot" style="left:44.2%;top:22%;transform:translate(-50%,-50%)" data-tip="🦭 Lobo marino sudamericano — Semiacuático. Conserva extremidades funcionales en tierra." onclick="event.stopPropagation()"></a>
+      <a href="condor.html" class="arbol-spot" style="left:52.2%;top:57%;transform:translate(-50%,-50%)" data-tip="🦅 Cóndor andino — Volador. El ave no passeriforme de mayor envergadura del mundo. Hasta 3,3m de ala a ala." onclick="event.stopPropagation()"></a>
+      <a href="delfin.html" class="arbol-spot" style="left:61.6%;top:22%;transform:translate(-50%,-50%)" data-tip="🐬 Delfín rosado — Acuático obligado. El cetáceo de agua dulce más grande. Cuello articulado único entre cetáceos." onclick="event.stopPropagation()"></a>
+      <a href="oso.html" class="arbol-spot" style="left:68.9%;top:5%;transform:translate(-50%,-50%)" data-tip="🐻 Oso de anteojos — Omnívoro, Ursidae. El único oso nativo de Sudamérica. 95% de su dieta es vegetal." onclick="event.stopPropagation()"></a>
+      <a href="vicuna.html" class="arbol-spot" style="left:70.4%;top:28%;transform:translate(-50%,-50%)" data-tip="🦙 Vicuña — Herbívora. Camélido adaptado a la hipoxia andina. Fibra natural más fina del mundo." onclick="event.stopPropagation()"></a>
+      <a href="zorro.html" class="arbol-spot" style="left:85.4%;top:5%;transform:translate(-50%,-50%)" data-tip="🦊 Zorro costeño — Omnívoro, Canidae. Endémico del desierto costero peruano." onclick="event.stopPropagation()"></a>
+      <a href="jaguar.html" class="arbol-spot" style="left:93.1%;top:17%;transform:translate(-50%,-50%)" data-tip="🐆 Jaguar — Carnívoro. El félido más grande de América. Migró desde Asia hace ~1.5 millones de años." onclick="event.stopPropagation()"></a>
+      <!-- Botón zoom -->
+      <div style="position:absolute;bottom:1rem;right:1rem;background:rgba(10,12,8,0.6);border:1px solid rgba(184,134,11,0.3);border-radius:var(--r-pill);padding:0.4rem 0.9rem;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dorado-claro);backdrop-filter:blur(4px);pointer-events:none">🔍 Clic para ampliar</div>
+    </div>
+
+    <!-- LIGHTBOX ÁRBOL -->
+    <div id="lightbox-arbol" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.96);align-items:center;justify-content:center;cursor:zoom-out;flex-direction:column;gap:1rem" onclick="cerrarArbol()">
+      <button style="position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.5;cursor:pointer;background:none;border:none;transition:opacity 0.2s" onmouseenter="this.style.opacity=1" onmouseleave="this.style.opacity=0.5" onclick="cerrarArbol()">✕</button>
+      <img src="img/arbol-filogenetico.png" alt="Árbol filogenético" style="max-width:95vw;max-height:92vh;object-fit:contain;border-radius:var(--r-lg)">
+      <p style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--humo);opacity:0.35">ESC o clic para cerrar</p>
+    </div>
+
+    <script>
+    function abrirArbol(){
+      const lb=document.getElementById('lightbox-arbol');
+      lb.style.display='flex';
+      document.body.style.overflow='hidden';
+    }
+    function cerrarArbol(){
+      document.getElementById('lightbox-arbol').style.display='none';
+      document.body.style.overflow='';
+    }
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrarArbol(); });
+    </script>
+    <div class="reveal" style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--humo);opacity:0.4">
+      <span>Pasa el cursor sobre cada animal para datos clave</span>
+      <span>·</span>
+      <span>Clic para ir a su sección</span>
+    </div>
+  </div>
+</section>
+
+<div id="arbol-tip" style="position:fixed;background:var(--carbon);border:1px solid rgba(184,134,11,0.2);border-radius:0.75rem;padding:0.7rem 1rem;font-size:0.8rem;line-height:1.6;color:var(--humo);max-width:240px;pointer-events:none;opacity:0;transition:opacity 0.2s;z-index:200;display:none"></div>
+
+<style>
+.arbol-spot{position:absolute;width:5%;aspect-ratio:1;border-radius:50%;background:rgba(184,134,11,0);border:2px solid rgba(184,134,11,0);transition:all 0.3s;cursor:pointer;transform:translate(-50%,-50%)}
+.arbol-spot:hover{background:rgba(184,134,11,0.25);border-color:rgba(184,134,11,0.7)}
+</style>
+
+<script>
+const tip2=document.getElementById('arbol-tip');
+document.querySelectorAll('.arbol-spot').forEach(el=>{
+  el.addEventListener('mouseenter',e=>{
+    tip2.textContent=el.dataset.tip;
+    tip2.style.display='block';
+    requestAnimationFrame(()=>tip2.style.opacity='1');
+  });
+  el.addEventListener('mousemove',e=>{
+    tip2.style.left=(e.clientX+16)+'px';
+    tip2.style.top=(e.clientY-10)+'px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    tip2.style.opacity='0';
+    setTimeout(()=>tip2.style.display='none',200);
+  });
+});
+</script>
+
+<div class="divider"></div>
+
+<svg width="100%" viewBox="0 0 680 820" role="img" style="min-width:580px;display:none">
+<title>Árbol filogenético de 10 animales peruanos</title>
+<desc>Árbol filogenético con líneas diagonales mostrando relaciones evolutivas entre 10 especies peruanas.</desc>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<!-- Raíz -->
+<g style="cursor:pointer">
+  <rect x="20" y="385" width="100" height="44" rx="8" fill="rgba(45,90,39,0.3)" stroke="rgba(126,198,107,0.5)" stroke-width="0.5"/>
+  <text x="70" y="407" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#7ec66b">Vertebrados</text>
+</g>
+
+<line x1="120" y1="407" x2="165" y2="407" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="165" y1="200" x2="165" y2="620" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<!-- SANGRE FRÍA -->
+<line x1="165" y1="407" x2="230" y2="200" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g style="cursor:pointer">
+  <rect x="230" y="178" width="100" height="44" rx="8" fill="rgba(55,138,221,0.15)" stroke="rgba(55,138,221,0.4)" stroke-width="0.5"/>
+  <text x="280" y="200" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#7bb8f0">Sangre fría</text>
+</g>
+
+<line x1="330" y1="200" x2="385" y2="200" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="385" y1="120" x2="385" y2="280" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<!-- Pez eléctrico -->
+<line x1="385" y1="200" x2="440" y2="120" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g style="cursor:pointer">
+  <rect x="440" y="98" width="108" height="44" rx="8" fill="rgba(184,134,11,0.15)" stroke="rgba(184,134,11,0.4)" stroke-width="0.5"/>
+  <text x="494" y="113" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#d4a017">Electrogenesis</text>
+  <text x="494" y="129" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(201,191,173,0.5)">Pez electrico</text>
+</g>
+
+<!-- Caimán + Anaconda -->
+<line x1="385" y1="200" x2="440" y2="270" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g style="cursor:pointer">
+  <rect x="440" y="248" width="86" height="44" rx="8" fill="rgba(184,134,11,0.1)" stroke="rgba(184,134,11,0.3)" stroke-width="0.5"/>
+  <text x="483" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#d4a017">Carnivoro</text>
+</g>
+
+<line x1="526" y1="270" x2="570" y2="270" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="570" y1="220" x2="570" y2="320" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<line x1="570" y1="270" x2="600" y2="220" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre la anaconda verde y su evolución')" style="cursor:pointer">
+  <rect x="572" y="198" width="96" height="44" rx="8" fill="rgba(45,90,39,0.25)" stroke="rgba(126,198,107,0.4)" stroke-width="0.5"/>
+  <text x="620" y="213" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7ec66b">Anaconda</text>
+  <text x="620" y="229" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(126,198,107,0.6)">Vivipara · Selva</text>
+</g>
+
+<line x1="570" y1="270" x2="600" y2="320" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el caimán negro y su evolución')" style="cursor:pointer">
+  <rect x="572" y="298" width="96" height="44" rx="8" fill="rgba(45,90,39,0.25)" stroke="rgba(126,198,107,0.4)" stroke-width="0.5"/>
+  <text x="620" y="313" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7ec66b">Caiman negro</text>
+  <text x="620" y="329" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(126,198,107,0.6)">Oviparo · Selva</text>
+</g>
+
+<!-- SANGRE CALIENTE -->
+<line x1="165" y1="407" x2="230" y2="620" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g style="cursor:pointer">
+  <rect x="230" y="598" width="118" height="44" rx="8" fill="rgba(184,134,11,0.15)" stroke="rgba(184,134,11,0.4)" stroke-width="0.5"/>
+  <text x="289" y="620" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#d4a017">Sangre caliente</text>
+</g>
+
+<line x1="348" y1="620" x2="395" y2="620" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="395" y1="520" x2="395" y2="740" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<!-- Cóndor -->
+<line x1="395" y1="620" x2="444" y2="520" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el cóndor andino y su evolución')" style="cursor:pointer">
+  <rect x="444" y="498" width="96" height="44" rx="8" fill="rgba(55,138,221,0.2)" stroke="rgba(55,138,221,0.5)" stroke-width="0.5"/>
+  <text x="492" y="513" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7bb8f0">Condor andino</text>
+  <text x="492" y="529" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(123,184,240,0.6)">Vuelo · Sierra</text>
+</g>
+
+<!-- Bifurcación acuático / terrestre -->
+<line x1="395" y1="620" x2="455" y2="620" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="455" y1="570" x2="455" y2="740" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<!-- León marino -->
+<line x1="455" y1="620" x2="508" y2="575" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el león marino y su evolución')" style="cursor:pointer">
+  <rect x="508" y="553" width="96" height="44" rx="8" fill="rgba(55,138,221,0.2)" stroke="rgba(55,138,221,0.5)" stroke-width="0.5"/>
+  <text x="556" y="568" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7bb8f0">Leon marino</text>
+  <text x="556" y="584" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(123,184,240,0.6)">Semiacuatico · Costa</text>
+</g>
+
+<!-- Delfín -->
+<line x1="455" y1="620" x2="508" y2="625" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el delfín rosado y su evolución')" style="cursor:pointer">
+  <rect x="508" y="603" width="96" height="44" rx="8" fill="rgba(45,90,39,0.25)" stroke="rgba(126,198,107,0.4)" stroke-width="0.5"/>
+  <text x="556" y="618" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7ec66b">Delfin rosado</text>
+  <text x="556" y="634" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(126,198,107,0.6)">Acuat. obligado · Selva</text>
+</g>
+
+<!-- Terrestres -->
+<line x1="455" y1="620" x2="508" y2="680" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g style="cursor:pointer">
+  <rect x="508" y="658" width="80" height="44" rx="8" fill="rgba(184,134,11,0.1)" stroke="rgba(184,134,11,0.3)" stroke-width="0.5"/>
+  <text x="548" y="673" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#d4a017">Terrestre</text>
+  <text x="548" y="689" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(212,160,23,0.6)">mamifero</text>
+</g>
+
+<line x1="588" y1="680" x2="610" y2="680" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<line x1="610" y1="660" x2="610" y2="780" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+
+<!-- Jaguar -->
+<line x1="610" y1="680" x2="572" y2="660" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el jaguar y su evolución')" style="cursor:pointer">
+  <rect x="572" y="638" width="96" height="44" rx="8" fill="rgba(45,90,39,0.25)" stroke="rgba(126,198,107,0.4)" stroke-width="0.5"/>
+  <text x="620" y="653" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7ec66b">Jaguar</text>
+  <text x="620" y="669" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(126,198,107,0.6)">Carnivoro · Selva</text>
+</g>
+
+<!-- Oso -->
+<line x1="610" y1="680" x2="572" y2="716" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el oso de anteojos y su evolución')" style="cursor:pointer">
+  <rect x="572" y="694" width="96" height="44" rx="8" fill="rgba(55,138,221,0.2)" stroke="rgba(55,138,221,0.5)" stroke-width="0.5"/>
+  <text x="620" y="709" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7bb8f0">Oso anteojos</text>
+  <text x="620" y="725" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(123,184,240,0.6)">Ursidae · Sierra</text>
+</g>
+
+<!-- Zorro -->
+<line x1="610" y1="680" x2="572" y2="750" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre el zorro costeño y su evolución')" style="cursor:pointer">
+  <rect x="572" y="728" width="96" height="44" rx="8" fill="rgba(55,138,221,0.2)" stroke="rgba(55,138,221,0.5)" stroke-width="0.5"/>
+  <text x="620" y="743" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7bb8f0">Zorro costeno</text>
+  <text x="620" y="759" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(123,184,240,0.6)">Canidae · Costa</text>
+</g>
+
+<!-- Vicuña -->
+<line x1="610" y1="680" x2="572" y2="780" stroke="rgba(201,191,173,0.25)" stroke-width="1" fill="none"/>
+<g onclick="sendPrompt('Cuéntame más sobre la vicuña y su evolución')" style="cursor:pointer">
+  <rect x="572" y="758" width="96" height="44" rx="8" fill="rgba(45,90,39,0.25)" stroke="rgba(126,198,107,0.4)" stroke-width="0.5"/>
+  <text x="620" y="773" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="500" fill="#7ec66b">Vicuna</text>
+  <text x="620" y="789" text-anchor="middle" dominant-baseline="central" font-size="10" fill="rgba(126,198,107,0.6)">Herbivora · Sierra</text>
+</g>
+
+</svg>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ÍNDICE ANIMALES -->
+<section id="animales">
+  <div class="animales-inner">
+    <p class="section-tag reveal">Sección 2 · Las Especies</p>
+    <h2 class="section-title reveal d1">Diez <em>testigos</em> de la evolución</h2>
+    <div class="region-pills reveal d2">
+      <div class="pill pill-all active" onclick="filtrar('all',this)">Todas</div>
+      <div class="pill pill-sierra" onclick="filtrar('sierra',this)">Sierra</div>
+      <div class="pill pill-selva" onclick="filtrar('selva',this)">Selva</div>
+      <div class="pill pill-costa" onclick="filtrar('costa',this)">Costa</div>
+    </div>
+    <div class="animales-grid" id="gridAnimales"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONCIENTIZACIÓN -->
+<section id="conciencia">
+  <div class="conciencia-inner">
+    <p class="section-tag reveal">Sección 3 · Biodiversidad</p>
+    <h2 class="section-title reveal d1">Un legado <em>en riesgo</em></h2>
+
+    <div class="stat-row">
+      <div class="stat-box reveal-scale d1">
+        <div class="stat-num">84</div>
+        <div class="stat-label">de las 117 zonas de vida del mundo presentes en el Perú</div>
+      </div>
+      <div class="stat-box reveal-scale d2">
+        <div class="stat-num">4to</div>
+        <div class="stat-label">país con mayor diversidad de mamíferos en el mundo</div>
+      </div>
+      <div class="stat-box reveal-scale d3">
+        <div class="stat-num">1er</div>
+        <div class="stat-label">en diversidad de peces de agua dulce en el mundo</div>
+      </div>
+    </div>
+
+    <div class="conciencia-body reveal d2">
+      <!-- ✏️ REDACTAR: mensaje de concientización -->
+      <p style="color:rgba(201,191,173,0.25);font-style:italic">[ Texto principal de concientización — por redactar ]</p>
+      <p style="color:rgba(201,191,173,0.25);font-style:italic;margin-top:1rem">[ Importancia de proteger la biodiversidad peruana — por redactar ]</p>
+    </div>
+
+    <div class="amenaza-list">
+      <div class="amenaza-item reveal d1">
+        <span class="amenaza-icon">🌳</span>
+        <div class="amenaza-text"><strong>Deforestación</strong><span style="color:rgba(201,191,173,0.25);font-style:italic">[ Por redactar ]</span></div>
+      </div>
+      <div class="amenaza-item reveal d2">
+        <span class="amenaza-icon">🎯</span>
+        <div class="amenaza-text"><strong>Caza furtiva</strong><span style="color:rgba(201,191,173,0.25);font-style:italic">[ Por redactar ]</span></div>
+      </div>
+      <div class="amenaza-item reveal d3">
+        <span class="amenaza-icon">🌡️</span>
+        <div class="amenaza-text"><strong>Cambio climático</strong><span style="color:rgba(201,191,173,0.25);font-style:italic">[ Por redactar ]</span></div>
+      </div>
+      <div class="amenaza-item reveal d4">
+        <span class="amenaza-icon">🏭</span>
+        <div class="amenaza-text"><strong>Contaminación</strong><span style="color:rgba(201,191,173,0.25);font-style:italic">[ Por redactar ]</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Perú Evolutivo</div>
+  <div class="footer-meta">Proyecto Personal IB · Ignacio Arias<br>Lima, Perú · 2026</div>
+</footer>
+
+<script>
+const animales=[
+  {id:"condor",nombre:"Cóndor Andino",sci:"Vultur gryphus",region:"sierra",page:"condor.html"},
+  {id:"oso",nombre:"Oso de Anteojos",sci:"Tremarctos ornatus",region:"sierra",page:"oso.html"},
+  {id:"vicuna",nombre:"Vicuña",sci:"Vicugna vicugna",region:"sierra",page:"vicuna.html"},
+  {id:"delfin",nombre:"Delfín Rosado",sci:"Inia geoffrensis",region:"selva",page:"delfin.html"},
+  {id:"anguila",nombre:"Anguila Eléctrica",sci:"Electrophorus electricus",region:"selva",page:"pez.html"},
+  {id:"anaconda",nombre:"Anaconda Verde",sci:"Eunectes murinus",region:"selva",page:"anaconda.html"},
+  {id:"jaguar",nombre:"Jaguar",sci:"Panthera onca",region:"selva",page:"jaguar.html"},
+  {id:"caiman",nombre:"Caimán Negro",sci:"Melanosuchus niger",region:"selva",page:"caiman.html"},
+  {id:"leon",nombre:"Lobo Marino Sudamericano",sci:"Otaria flavescens",region:"costa",page:"leon.html"},
+  {id:"zorro",nombre:"Zorro Costeño",sci:"Lycalopex sechurae",region:"costa",page:"zorro.html"}
+];
+const regionLabel={sierra:"Sierra",selva:"Selva",costa:"Costa"};
+
+function renderAnimales(filtro){
+  const grid=document.getElementById('gridAnimales');
+  grid.innerHTML='';
+  animales.forEach((a,i)=>{
+    if(filtro!=='all'&&a.region!==filtro)return;
+    const card=document.createElement('a');
+    card.className='animal-card reveal';
+    card.style.transitionDelay=(i%4*0.08)+'s';
+    card.href=a.page;
+    card.innerHTML=`
+      <div class="ac-img" onclick="event.preventDefault();abrirFoto('img/${a.id}.jpg','${a.nombre}')">
+        <img src="img/${a.id}.jpg" alt="${a.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ac-img-placeholder" style="display:none">
+          <img src="img/icons/${a.id}.png" class="ac-icon-solo">
+        </div>
+        <div class="ac-icon-overlay">
+          <img src="img/icons/${a.id}.png" class="ac-icon-badge" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+      <div class="ac-body">
+        <span class="badge badge-${a.region}">${regionLabel[a.region]}</span>
+        <div class="ac-nombre">${a.nombre}</div>
+        <div class="ac-sci">${a.sci}</div>
+      </div>
+      <div class="ac-footer">
+        <span class="ac-link">Ver especie</span>
+        <span class="ac-arrow">→</span>
+      </div>`;
+    grid.appendChild(card);
+    // Trigger observer for newly added cards
+    requestAnimationFrame(()=>observer&&observer.observe(card));
+  });
+}
+function filtrar(region,btn){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  renderAnimales(region);
+}
+renderAnimales('all');
+</script>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+  <button class="lightbox-close" onclick="cerrarLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
+<script>
+function abrirFoto(src,nombre){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox-caption').textContent=nombre;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function cerrarLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrarLightbox(); });
+</script>
+<script src="scroll.js"></script>
+</body>
+</html>
