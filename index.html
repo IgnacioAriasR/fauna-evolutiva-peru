@@ -555,16 +555,16 @@ document.querySelectorAll('.arbol-spot').forEach(el=>{
 
 <script>
 const animales=[
-  {id:"condor",nombre:"Cóndor Andino",sci:"Vultur gryphus",region:"sierra",page:"condor.html"},
-  {id:"oso",nombre:"Oso de Anteojos",sci:"Tremarctos ornatus",region:"sierra",page:"oso.html"},
-  {id:"vicuna",nombre:"Vicuña",sci:"Vicugna vicugna",region:"sierra",page:"vicuna.html"},
-  {id:"delfin",nombre:"Delfín Rosado",sci:"Inia geoffrensis",region:"selva",page:"delfin.html"},
-  {id:"anguila",nombre:"Anguila Eléctrica",sci:"Electrophorus electricus",region:"selva",page:"pez.html"},
-  {id:"anaconda",nombre:"Anaconda Verde",sci:"Eunectes murinus",region:"selva",page:"anaconda.html"},
-  {id:"jaguar",nombre:"Jaguar",sci:"Panthera onca",region:"selva",page:"jaguar.html"},
-  {id:"caiman",nombre:"Caimán Negro",sci:"Melanosuchus niger",region:"selva",page:"caiman.html"},
-  {id:"leon",nombre:"Lobo Marino Sudamericano",sci:"Otaria flavescens",region:"costa",page:"leon.html"},
-  {id:"zorro",nombre:"Zorro Costeño",sci:"Lycalopex sechurae",region:"costa",page:"zorro.html"}
+  {id:"condor",ext:"jpg",nombre:"Cóndor Andino",sci:"Vultur gryphus",region:"sierra",page:"condor.html"},
+  {id:"oso",ext:"jpg",nombre:"Oso de Anteojos",sci:"Tremarctos ornatus",region:"sierra",page:"oso.html"},
+  {id:"vicuna",ext:"jpg",nombre:"Vicuña",sci:"Vicugna vicugna",region:"sierra",page:"vicuna.html"},
+  {id:"delfin",ext:"webp",nombre:"Delfín Rosado",sci:"Inia geoffrensis",region:"selva",page:"delfin.html"},
+  {id:"anguila",ext:"avif",nombre:"Anguila Eléctrica",sci:"Electrophorus electricus",region:"selva",page:"pez.html"},
+  {id:"anaconda",ext:"webp",nombre:"Anaconda Verde",sci:"Eunectes murinus",region:"selva",page:"anaconda.html"},
+  {id:"jaguar",ext:"jpg",nombre:"Jaguar",sci:"Panthera onca",region:"selva",page:"jaguar.html"},
+  {id:"caiman",ext:"jpg",nombre:"Caimán Negro",sci:"Melanosuchus niger",region:"selva",page:"caiman.html"},
+  {id:"leon",ext:"avif",nombre:"Lobo Marino Sudamericano",sci:"Otaria flavescens",region:"costa",page:"leon.html"},
+  {id:"zorro",ext:"jpg",nombre:"Zorro Costeño",sci:"Lycalopex sechurae",region:"costa",page:"zorro.html"}
 ];
 const regionLabel={sierra:"Sierra",selva:"Selva",costa:"Costa"};
 
@@ -578,8 +578,8 @@ function renderAnimales(filtro){
     card.style.transitionDelay=(i%4*0.08)+'s';
     card.href=a.page;
     card.innerHTML=`
-      <div class="ac-img" onclick="event.preventDefault();abrirFoto('img/${a.id}.jpg','${a.nombre}')">
-        <img src="img/${a.id}.jpg" alt="${a.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="ac-img" onclick="event.preventDefault();abrirFoto('img/${a.id}.${a.ext}','${a.nombre}')">
+        <img src="img/${a.id}.${a.ext}" alt="${a.nombre}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="ac-img-placeholder" style="display:none">
           <img src="img/icons/${a.id}.png" class="ac-icon-solo">
         </div>
