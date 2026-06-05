@@ -163,9 +163,15 @@
       <section class="reveal d1">
         <p class="content-title">Historia Evolutiva</p>
         <div class="content-body">
-          <p>El origen de la familia Cathartidae, a la cual pertenece el cóndor, se remonta a hace unos 61 millones de años, en el Paleógeno temprano. Este grupo está conformado exclusivamente por buitres del Nuevo Mundo, los cuales no están emparentados con los buitres de África o Europa, habiendo evolucionado de manera completamente independiente. Se estima que hace 11 millones de años, durante el levantamiento final de los Andes, los cóndores se diversificaron de su grupo, encontrando así un hábitat ideal: grandes alturas y corrientes de viento ascendentes. Fue aquí donde, a causa de la presión evolutiva de vivir en montañas gigantes, desarrollaron especializaciones extremas para el vuelo de planeo: alas enormes, huesos huecos y la capacidad de planear horas sin batir las alas. La montaña los esculpió (Nabte et al., 2021, resumen).</p>
+          <p>El origen de la familia Cathartidae, a la cual pertenece el cóndor, se remonta a hace unos 61 millones de años, en el Paleógeno temprano. Este grupo está conformado exclusivamente por buitres del Nuevo Mundo, los cuales no están emparentados con los buitres de África o Europa, habiendo evolucionado de manera completamente independiente. Se estima que hace 11 millones de años, durante el levantamiento final de los Andes, los cóndores se diversificaron de su grupo, herederos de un linaje que alguna vez produjo al <em>Argentavis magnificens</em>, el ave voladora más grande de la historia, encontrando así un hábitat ideal: grandes alturas y corrientes de viento ascendentes. Fue aquí donde, a causa de la presión evolutiva de vivir en montañas gigantes, desarrollaron especializaciones extremas para el vuelo de planeo: alas enormes, huesos huecos y la capacidad de planear horas sin batir las alas. La montaña los esculpió (Nabte et al., 2021, resumen).</p>
         </div>
       </section>
+
+      <!-- Ilustración Argentavis -->
+      <div class="reveal" style="margin-bottom:3rem;border-radius:var(--r-xl);overflow:hidden;position:relative;cursor:zoom-in" onclick="abrirFoto('img/argentavis.png','Argentavis magnificens — el ave voladora más grande de la historia')">
+        <img src="img/argentavis.png" alt="Argentavis magnificens" style="width:100%;max-height:400px;object-fit:cover;object-position:center;display:block">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:0.5rem 0.9rem;background:linear-gradient(to top,rgba(10,12,8,0.85),transparent);font-size:0.62rem;color:var(--humo);opacity:0.7">📷 Reed, D. (s.f.). <em>Argentavis magnificens</em> [ilustración]. Wikimedia Commons · 🔍 Clic para ampliar</div>
+      </div>
 
       <section class="reveal d2">
         <p class="content-title">Estado de Conservación</p>
@@ -244,11 +250,11 @@ const orden=[
   {nombre:"Oso de Anteojos",page:"oso.html",emoji:"🐻"},
   {nombre:"Vicuña",page:"vicuna.html",emoji:"🦙"},
   {nombre:"Delfín Rosado",page:"delfin.html",emoji:"🐬"},
-  {nombre:"Pez Eléctrico",page:"pez.html",emoji:"⚡"},
+  {nombre:"Anguila Eléctrica",page:"pez.html",emoji:"⚡"},
   {nombre:"Anaconda Verde",page:"anaconda.html",emoji:"🐍"},
   {nombre:"Jaguar",page:"jaguar.html",emoji:"🐆"},
   {nombre:"Caimán Negro",page:"caiman.html",emoji:"🐊"},
-  {nombre:"León Marino",page:"leon.html",emoji:"🦭"},
+  {nombre:"Lobo Marino Sudamericano",page:"leon.html",emoji:"🦭"},
   {nombre:"Zorro Costeño",page:"zorro.html",emoji:"🦊"}
 ];
 const actual="condor.html";
@@ -258,6 +264,26 @@ let html='';
 if(idx>0){const p=orden[idx-1];html+=`<a class="nav-animal-btn" href="${p.page}"><span class="nav-dir">← Anterior</span><span class="nav-animal-name">${p.emoji} ${p.nombre}</span></a>`;}
 if(idx<orden.length-1){const n=orden[idx+1];html+=`<a class="nav-animal-btn next" href="${n.page}"><span class="nav-dir">Siguiente →</span><span class="nav-animal-name">${n.nombre} ${n.emoji}</span></a>`;}
 nav.innerHTML=html;
+</script>
+
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.96);align-items:center;justify-content:center;flex-direction:column;gap:1rem;cursor:zoom-out" onclick="cerrarLb()">
+  <button style="position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.5;cursor:pointer;background:none;border:none" onclick="cerrarLb()">✕</button>
+  <img id="lb-img" src="" style="max-width:92vw;max-height:85vh;object-fit:contain;border-radius:1rem">
+  <p id="lb-cap" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--humo);opacity:0.4"></p>
+</div>
+<script>
+function abrirFoto(src,caption){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-cap').textContent=caption;
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function cerrarLb(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')cerrarLb()});
 </script>
 </body>
 </html>
