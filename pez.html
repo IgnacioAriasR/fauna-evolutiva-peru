@@ -155,7 +155,18 @@
       <section class="reveal">
         <p class="content-title">Descripción General</p>
         <div class="content-body">
-          <p>La anguila eléctrica (<em>Electrophorus electricus</em>), también conocida como pez eléctrico amazónico, es una especie capaz de producir descargas superiores a los 700 voltios y 2 amperios. Pertenece a la misma familia que las otras 2 especies de anguila eléctrica (<em>Electrophorus voltai</em> y <em>Electrophorus varii</em>), que pese a llevar este nombre, no pertenecen a la familia Anguillidae, sino que están más emparentadas con los bagres. Este animal habita los ríos del Amazonas y el Orinoco, al igual que sus afluentes. Asimismo, puede ser encontrado de manera bastante usual en zonas pantanosas, poco profundas y de fondo fangoso. Este pez es reconocible fácilmente por su silueta anguiliforme: un cuerpo sumamente alargado que llega a medir hasta 2,5 metros, de color marrón verdoso bastante oscuro, tornándose a un tono más blanquecino o amarillento en el vientre. Entre sus características más destacadas se encuentran los electrocitos, células en sus músculos adaptadas para emitir descargas de más de 700 voltios y 2 amperios, más que suficiente para aturdir a una presa grande. Empero, la anguila también puede despedir otro tipo de descarga, pues posee unos electroreceptores situados debajo de su cabeza con los cuales, al generar un pequeño campo eléctrico a su alrededor, funcionan como una especie de radar para compensar la poca visibilidad del agua en la zona y facilitar la localización de potenciales peligros y presas. En el caso de los juveniles, se alimentan de invertebrados, mientras que los adultos son completamente piscívoros, y según algunas observaciones, se ha evidenciado que estas criaturas llegan a saltar del agua al cazar, produciendo un choque eléctrico mayor al normal durante la embestida (Fishipedia, s.f., párr. 3-6, 8-10, 12-15, 19).</p>
+          <p>La anguila eléctrica (<em>Electrophorus electricus</em>), también conocida como pez eléctrico amazónico, es una especie capaz de producir descargas superiores a los 700 voltios y 2 amperios. Pertenece a la misma familia que las otras 2 especies de anguila eléctrica (<em>Electrophorus voltai</em> y <em>Electrophorus varii</em>), que pese a llevar este nombre, no pertenecen a la familia Anguillidae, sino que están más emparentadas con los bagres. Este animal habita los ríos del Amazonas y el Orinoco, al igual que sus afluentes. Asimismo, puede ser encontrado de manera bastante usual en zonas pantanosas, poco profundas y de fondo fangoso.</p>
+          <p>Este pez es reconocible fácilmente por su silueta anguiliforme: un cuerpo sumamente alargado que llega a medir hasta 2,5 metros, de color marrón verdoso bastante oscuro, tornándose a un tono más blanquecino o amarillento en el vientre. Entre sus características más destacadas se encuentran los electrocitos, células en sus músculos adaptadas para emitir descargas de más de 700 voltios y 2 amperios, más que suficiente para aturdir a una presa grande. Empero, la anguila también puede despedir otro tipo de descarga, pues posee unos electroreceptores situados debajo de su cabeza con los cuales, al generar un pequeño campo eléctrico a su alrededor, funcionan como una especie de radar para compensar la poca visibilidad del agua en la zona y facilitar la localización de potenciales peligros y presas.</p>
+        </div>
+
+        <!-- Foto anguila eléctrica cuerpo completo -->
+        <div class="reveal" style="margin:2rem 0;border-radius:var(--r-xl);overflow:hidden;position:relative;cursor:zoom-in" onclick="abrirFoto('img/anguila-cuerpo.webp','Anguila eléctrica — cuerpo completo')">
+          <img src="img/anguila-cuerpo.webp" alt="Anguila eléctrica de cuerpo completo" style="width:100%;max-height:420px;object-fit:cover;object-position:center;display:block">
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:0.5rem 0.9rem;background:linear-gradient(to top,rgba(10,12,8,0.85),transparent);font-size:0.62rem;color:var(--humo);opacity:0.7">📷 [ Crédito fotográfico ] · Anguila eléctrica de cuerpo completo · 🔍 Clic para ampliar</div>
+        </div>
+
+        <div class="content-body">
+          <p>En el caso de los juveniles, se alimentan de invertebrados, mientras que los adultos son completamente piscívoros, y según algunas observaciones, se ha evidenciado que estas criaturas llegan a saltar del agua al cazar, produciendo un choque eléctrico mayor al normal durante la embestida (Fishipedia, s.f., párr. 3-6, 8-10, 12-15, 19).</p>
         </div>
       </section>
 
@@ -243,6 +254,25 @@ let html='';
 if(idx>0){const p=orden[idx-1];html+=`<a class="nav-animal-btn" href="${p.page}"><span class="nav-dir">← Anterior</span><span class="nav-animal-name">${p.emoji} ${p.nombre}</span></a>`;}
 if(idx<orden.length-1){const n=orden[idx+1];html+=`<a class="nav-animal-btn next" href="${n.page}"><span class="nav-dir">Siguiente →</span><span class="nav-animal-name">${n.nombre} ${n.emoji}</span></a>`;}
 nav.innerHTML=html;
+</script>
+
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.96);align-items:center;justify-content:center;flex-direction:column;gap:1rem;cursor:zoom-out" onclick="cerrarLb()">
+  <button style="position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.5;cursor:pointer;background:none;border:none" onclick="cerrarLb()">✕</button>
+  <img id="lb-img" src="" style="max-width:92vw;max-height:85vh;object-fit:contain;border-radius:1rem">
+  <p id="lb-cap" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--humo);opacity:0.4"></p>
+</div>
+<script>
+function abrirFoto(src,caption){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-cap').textContent=caption;
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function cerrarLb(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
 </script>
 </body>
 </html>
