@@ -265,8 +265,8 @@
     <p class="reveal d2" style="font-size:0.88rem;line-height:1.85;color:var(--humo);max-width:600px;margin-bottom:2.5rem">Relaciones evolutivas entre las diez especies peruanas, organizadas por caracteres biológicos clave. Pasa el cursor sobre cada animal para ver datos clave o haz clic para ir a su sección.</p>
     <div class="reveal d3" style="width:100%;border-radius:1.5rem;overflow:hidden;cursor:zoom-in;background:linear-gradient(160deg,#14170f 0%,#0a0c08 100%);box-shadow:0 25px 60px -15px rgba(0,0,0,0.7),inset 0 0 0 1px rgba(184,134,11,0.35);padding:2.5rem" onclick="abrirArbol()">
     <div style="position:relative;width:100%">
-      <img id="arbol-img" src="img/arbol-filogenetico.png" alt="Árbol filogenético de 10 animales peruanos" style="width:100%;display:block">
-      <!-- HOTSPOTS — recalibrados sobre img/arbol-filogenetico.png (1920x1080) -->
+      <img id="arbol-img" src="img/arbol-filogenetico-v2.png" alt="Árbol filogenético de 10 animales peruanos" style="width:100%;display:block">
+      <!-- HOTSPOTS — recalibrados sobre img/arbol-filogenetico-v2.png (1920x1080) -->
       <a href="anaconda.html" class="arbol-spot" style="left:4.8%;top:31.2%;transform:translate(-50%,-50%)" data-tip="🐍 Anaconda verde — Vivípara, inusual para reptiles. La serpiente más pesada del mundo." onclick="event.stopPropagation()"></a>
       <a href="caiman.html" class="arbol-spot" style="left:26.7%;top:30.7%;transform:translate(-50%,-50%)" data-tip="🐊 Caimán negro — Ovíparo. El mayor depredador amazónico. Plan corporal sin cambios en 80 millones de años." onclick="event.stopPropagation()"></a>
       <a href="pez.html" class="arbol-spot" style="left:32.8%;top:49.7%;transform:translate(-50%,-50%)" data-tip="⚡ Anguila eléctrica — Electrogenesis. Genera hasta 860V. Ejemplo icónico de evolución convergente." onclick="event.stopPropagation()"></a>
@@ -285,7 +285,7 @@
     <!-- LIGHTBOX ÁRBOL -->
     <div id="lightbox-arbol" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.96);align-items:center;justify-content:center;cursor:zoom-out;flex-direction:column;gap:1rem" onclick="cerrarArbol()">
       <button style="position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.5;cursor:pointer;background:none;border:none;transition:opacity 0.2s" onmouseenter="this.style.opacity=1" onmouseleave="this.style.opacity=0.5" onclick="cerrarArbol()">✕</button>
-      <img src="img/arbol-filogenetico.png" alt="Árbol filogenético" style="max-width:95vw;max-height:92vh;object-fit:contain;border-radius:var(--r-lg)">
+      <img src="img/arbol-filogenetico-v2.png" alt="Árbol filogenético" style="max-width:95vw;max-height:92vh;object-fit:contain;border-radius:var(--r-lg)">
       <p style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--humo);opacity:0.35">ESC o clic para cerrar</p>
     </div>
 
