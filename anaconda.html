@@ -155,9 +155,22 @@
       <section class="reveal">
         <p class="content-title">Descripción General</p>
         <div class="content-body">
-          <p>La Anaconda Verde (<em>Eunectes murinus</em>), también conocida como anaconda gigante o gran anaconda, haciendo referencia al hecho de que es la serpiente más grande del mundo llegando a pesar 250 kilos y según algunos registros, alcanzar los 11,5 metros de longitud. Habita la selva amazónica, puede ser encontrada en todos los países de América del Sur, exceptuando Chile. Siempre permanece cerca o dentro de cuerpos de agua como arroyos, ríos, pantanos, lagos con densa vegetación y praderas inundadas, suele preferir las aguas lentas y turbias. Por otro lado, el género <em>Eunectes</em> (buen nadador en griego) agrupa 4 especies alrededor de Sudamérica, de la cual la verde es la más grande. Sin embargo, el tamaño varía según el sexo, las hembras pueden medir entre 7 y 9 metros, mientras los machos varían entre 4 y 6 metros. Su cuerpo es de un color verde oliva que se torna amarillento en la zona ventral. Asimismo, su dorso aparece recubierto de numerosas manchas redondeadas en tonos marrón y negro, lo cual le brinda un camuflaje excepcional en su entorno. Por otra parte, es un animal totalmente solitario, que si bien prefiere el medio acuático, es capaz de trepar árboles de ser necesario. Su actividad inicia durante la noche y utiliza un estilo sigiloso de caza, con el cual se aproxima lentamente a su presa, la cual —de ser lo suficientemente grande (ciervos, tapires, capibaras)— estrangula con su enorme fuerza; en otros casos, se alimenta de pájaros, peces e incluso tortugas. Como es inferible por su tamaño, la principal arma de la anaconda es su gran fuerza asfixiadora, esto debido a que su mordedura no contiene veneno, aunque igualmente representa un peligro por su potencia y capacidad de infectar con bacterias (Fishipedia, s.f., párr. 1-2, 5-6, 10-15, 23, 26, 29).</p>
+          <p>La Anaconda Verde (<em>Eunectes murinus</em>), también conocida como anaconda gigante o gran anaconda, haciendo referencia al hecho de que es la serpiente más grande del mundo llegando a pesar 250 kilos y según algunos registros, alcanzar los 11,5 metros de longitud. Habita la selva amazónica, puede ser encontrada en todos los países de América del Sur, exceptuando Chile. Siempre permanece cerca o dentro de cuerpos de agua como arroyos, ríos, pantanos, lagos con densa vegetación y praderas inundadas, suele preferir las aguas lentas y turbias.</p>
+          <p>Por otro lado, el género <em>Eunectes</em> (buen nadador en griego) agrupa 4 especies alrededor de Sudamérica, de la cual la verde es la más grande. Sin embargo, el tamaño varía según el sexo, las hembras pueden medir entre 7 y 9 metros, mientras los machos varían entre 4 y 6 metros. Su cuerpo es de un color verde oliva que se torna amarillento en la zona ventral. Asimismo, su dorso aparece recubierto de numerosas manchas redondeadas en tonos marrón y negro, lo cual le brinda un camuflaje excepcional en su entorno.</p>
+
+          <div style="display:flex;gap:1.8rem;align-items:flex-start;margin-top:1rem" class="anaconda-side-block">
+            <div class="reveal" style="flex:0 0 38%;max-width:38%;border-radius:var(--r-xl);overflow:hidden;position:relative;cursor:zoom-in" onclick="abrirFoto('img/anaconda-buzo.webp','Anaconda verde en su hábitat acuático')">
+              <img src="img/anaconda-buzo.webp" alt="Anaconda verde acechando en aguas turbias, con un buzo al fondo" style="width:100%;height:100%;object-fit:cover;display:block">
+              <div style="position:absolute;bottom:0;left:0;right:0;padding:0.5rem 0.8rem;background:linear-gradient(to top,rgba(10,12,8,0.85),transparent);font-size:0.6rem;color:var(--humo);opacity:0.7">📷 [ Crédito fotográfico ] · 🔍 Ampliar</div>
+            </div>
+            <p style="flex:1;margin:0">Por otra parte, es un animal totalmente solitario, que si bien prefiere el medio acuático, es capaz de trepar árboles de ser necesario. Su actividad inicia durante la noche y utiliza un estilo sigiloso de caza, con el cual se aproxima lentamente a su presa, la cual —de ser lo suficientemente grande (ciervos, tapires, capibaras)— estrangula con su enorme fuerza; en otros casos, se alimenta de pájaros, peces e incluso tortugas. Como es inferible por su tamaño, la principal arma de la anaconda es su gran fuerza asfixiadora, esto debido a que su mordedura no contiene veneno, aunque igualmente representa un peligro por su potencia y capacidad de infectar con bacterias (Fishipedia, s.f., párr. 1-2, 5-6, 10-15, 23, 26, 29).</p>
+          </div>
         </div>
       </section>
+
+      <style>
+        @media(max-width:768px){.anaconda-side-block{flex-direction:column}.anaconda-side-block>div{flex:0 0 auto!important;max-width:100%!important}}
+      </style>
 
       <section class="reveal d1">
         <p class="content-title">Historia Evolutiva</p>
@@ -250,6 +263,25 @@ let html='';
 if(idx>0){const p=orden[idx-1];html+=`<a class="nav-animal-btn" href="${p.page}"><span class="nav-dir">← Anterior</span><span class="nav-animal-name">${p.emoji} ${p.nombre}</span></a>`;}
 if(idx<orden.length-1){const n=orden[idx+1];html+=`<a class="nav-animal-btn next" href="${n.page}"><span class="nav-dir">Siguiente →</span><span class="nav-animal-name">${n.nombre} ${n.emoji}</span></a>`;}
 nav.innerHTML=html;
+</script>
+
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(5,7,3,0.96);align-items:center;justify-content:center;flex-direction:column;gap:1rem;cursor:zoom-out" onclick="cerrarLb()">
+  <button style="position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:var(--humo);opacity:0.5;cursor:pointer;background:none;border:none" onclick="cerrarLb()">✕</button>
+  <img id="lb-img" src="" style="max-width:92vw;max-height:85vh;object-fit:contain;border-radius:1rem">
+  <p id="lb-cap" style="font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--humo);opacity:0.4"></p>
+</div>
+<script>
+function abrirFoto(src,caption){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lb-img').src=src;
+  document.getElementById('lb-cap').textContent=caption;
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function cerrarLb(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
 </script>
 </body>
 </html>
