@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referencias y Créditos Fotográficos · Perú Evolutivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO ── */
+.ref-hero{padding:9rem 3rem 4rem;background:var(--carbon);position:relative;overflow:hidden;text-align:center}
+.ref-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(184,134,11,0.09),transparent 60%)}
+.ref-hero-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.ref-hero-inner .section-tag{justify-content:center;display:flex}
+.ref-hero-inner h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;color:var(--crema);font-weight:400;margin-bottom:1rem}
+.ref-hero-inner p{font-size:0.88rem;line-height:1.8;color:var(--humo)}
+.ref-back{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--humo);text-decoration:none;opacity:0.5;transition:opacity 0.3s;margin-bottom:1.5rem;border:1px solid rgba(201,191,173,0.12);padding:0.3rem 0.9rem;border-radius:var(--r-pill)}
+.ref-back:hover{opacity:1;border-color:rgba(201,191,173,0.25)}
+
+/* ── ÍNDICE RÁPIDO ── */
+#ref-index{background:var(--oscuro);padding:2.2rem 3rem;border-top:1px solid rgba(201,191,173,0.07);border-bottom:1px solid rgba(201,191,173,0.07)}
+.ref-index-inner{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center}
+.ref-index-inner a{font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--humo);text-decoration:none;padding:0.35rem 0.9rem;border:1px solid rgba(201,191,173,0.12);border-radius:var(--r-pill);transition:all 0.3s}
+.ref-index-inner a:hover{color:var(--dorado-brillo);border-color:rgba(184,134,11,0.4);background:rgba(184,134,11,0.06)}
+
+/* ── CUERPO ── */
+#ref-main{background:var(--negro);padding:5rem 3rem 7rem}
+.ref-main-inner{max-width:820px;margin:0 auto}
+
+.ref-block{padding:3.2rem 0;border-bottom:1px solid rgba(201,191,173,0.08);scroll-margin-top:5.5rem}
+.ref-block:first-child{padding-top:0}
+.ref-block:last-child{border-bottom:none;padding-bottom:0}
+
+.ref-block-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.6rem;flex-wrap:wrap}
+.ref-block-head h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:1.85rem;color:var(--crema);margin:0}
+
+.ref-sub{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--dorado-claro);opacity:0.7;margin:1.6rem 0 0.9rem}
+.ref-sub:first-of-type{margin-top:0}
+
+.ref-list{list-style:none;margin:0;padding:0}
+.ref-list li{font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.6;color:var(--humo);padding:0.9rem 0;border-top:1px solid rgba(201,191,173,0.06)}
+.ref-list li:first-child{border-top:none}
+.ref-list li em{font-style:italic;color:var(--crema)}
+.ref-list li a{color:var(--dorado-claro);font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.03em;text-decoration:none;opacity:0.75;margin-left:0.3rem}
+.ref-list li a:hover{opacity:1;text-decoration:underline}
+.ref-extra{display:block;font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--humo);opacity:0.55;margin-top:0.25rem;letter-spacing:0.02em}
+
+@media(max-width:768px){
+  .ref-hero,#ref-index,#ref-main{padding-left:1.5rem;padding-right:1.5rem}
+  .ref-hero{padding-top:7rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Perú Evolutivo</a>
+  <div class="nav-links">
+    <a href="index.html#evolucion">La Evolución</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-btn">Las Especies ▾</button>
+      <div class="dropdown-menu">
+        <div class="dropdown-region">Sierra</div>
+        <a href="condor.html">🦅 Cóndor Andino</a>
+        <a href="oso.html">🐻 Oso de Anteojos</a>
+        <a href="vicuna.html">🦙 Vicuña</a>
+        <div class="dropdown-sep"></div>
+        <div class="dropdown-region">Selva</div>
+        <a href="delfin.html">🐬 Delfín Rosado</a>
+        <a href="pez.html">⚡ Pez Eléctrico</a>
+        <a href="anaconda.html">🐍 Anaconda</a>
+        <a href="jaguar.html">🐆 Jaguar</a>
+        <a href="caiman.html">🐊 Caimán Negro</a>
+        <div class="dropdown-sep"></div>
+        <div class="dropdown-region">Costa</div>
+        <a href="leon.html">🦭 León Marino</a>
+        <a href="zorro.html">🦊 Zorro Costeño</a>
+      </div>
+    </div>
+    <a href="index.html#conciencia">Biodiversidad</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="ref-hero">
+  <div class="ref-hero-inner">
+    <a class="ref-back" href="index.html">← Volver al inicio</a>
+    <p class="section-tag">Fuentes del proyecto</p>
+    <h1>Referencias y Créditos Fotográficos</h1>
+    <p>Fuentes bibliográficas y créditos de las fotografías utilizadas en cada especie del sitio, en formato APA 7.</p>
+  </div>
+</div>
+
+<!-- ÍNDICE RÁPIDO -->
+<div id="ref-index">
+  <div class="ref-index-inner">
+    <a href="#generales">Generales</a>
+    <a href="#condor">🦅 Cóndor Andino</a>
+    <a href="#oso">🐻 Oso de Anteojos</a>
+    <a href="#vicuna">🦙 Vicuña</a>
+    <a href="#delfin">🐬 Delfín Rosado</a>
+    <a href="#anguila">⚡ Anguila Eléctrica</a>
+    <a href="#anaconda">🐍 Anaconda Verde</a>
+    <a href="#jaguar">🐆 Jaguar</a>
+    <a href="#caiman">🐊 Caimán Negro</a>
+    <a href="#leon">🦭 Lobo Marino</a>
+    <a href="#zorro">🦊 Zorro Costeño</a>
+  </div>
+</div>
+
+<!-- CUERPO -->
+<div id="ref-main">
+  <div class="ref-main-inner">
+
+    <section class="ref-block reveal" id="generales">
+      <div class="ref-block-head">
+        <span class="badge">Sitio</span>
+        <h2>Generales</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>National Geographic. (2023, 12 de julio). <em>Cómo evolucionan las especies según Darwin</em>. National Geographic Latinoamérica. <a href="https://www.nationalgeographicla.com/ciencia/2023/07/como-evolucionan-las-especies-segun-darwin" target="_blank" rel="noopener">↗</a></li>
+        <li>Ministerio del Ambiente. (2019). <em>La biodiversidad en cifras: Sexto informe nacional sobre diversidad biológica</em>. <a href="https://sinia.minam.gob.pe/sites/default/files/archivos/public/docs/La_Biodiversidad_en_Cifras.pdf" target="_blank" rel="noopener">↗</a></li>
+        <li>Darwin, C. (1859). <em>El origen de las especies</em>. John Murray. <a href="https://www.suneo.mx/literatura/subidas/Charles%20Darwin%20El%20Origen%20de%20las%20Especies.pdf" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Stirton, B. (2013, 10 de agosto). <em>Cráneo de Australopithecus sediba</em> [fotografía]. National Geographic. <a href="https://www.nationalgeographic.com/adventure/article/130810-fossil-science-paleontology-future" target="_blank" rel="noopener">↗</a></li>
+        <li>Del Águila, M. (s.f.). <em>Amazonas a los Andes</em> [fotografía]. WWF-US. <a href="https://andeangreattreks.com/wp-content/uploads/AMAZON-TO-THE-ANDES-BY-ANDEAN-GREAT-TREKS.jpg" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="condor">
+      <div class="ref-block-head">
+        <span class="badge badge-sierra">Sierra</span>
+        <h2>Cóndor Andino</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>De la Cruz, F. (2024, 14 de mayo). <em>El cóndor en la costa peruana: desafíos para evitar la extinción de esta especie</em>. Actualidad Ambiental. <a href="https://www.actualidadambiental.pe/el-condor-en-la-costa-peruana-desafios-para-evitar-la-extincion-de-esta-especie/" target="_blank" rel="noopener">↗</a></li>
+        <li>De Panis, D., Lambertucci, S. A., Wiemeyer, G., Dopazo, H., Almeida, F. C., Mazzoni, C. J., Gut, M., Gut, I., &amp; Padró, J. (2021). Mitogenomic analysis of extant condor species provides insight into the molecular evolution of vultures. <em>Scientific Reports, 11</em>, 17109. <a href="https://doi.org/10.1038/s41598-021-96080-6" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="oso">
+      <div class="ref-block-head">
+        <span class="badge badge-sierra">Sierra</span>
+        <h2>Oso de Anteojos</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Mongabay Latam. (2017, 22 de febrero). <em>Día Internacional para la protección de los Osos: tres historias sobre el oso de anteojos</em>. <a href="https://es.mongabay.com/2017/02/dia-internacional-la-proteccion-los-osos-tres-historias-oso-anteojos/" target="_blank" rel="noopener">↗</a></li>
+        <li>WWF Perú. (s.f.). <em>Oso de anteojos</em>. <a href="https://www.wwf.org.pe/?354830%2FOso-de-anteojos=" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Chen, J. [Morosaurus millenii]. (s.f.). <em>Arctodus simus</em> [fotografía]. Wikimedia Commons.
+          <span class="ref-extra">CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Arctodus_simus_Page.jpg" target="_blank" rel="noopener">commons.wikimedia.org ↗</a></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="vicuna">
+      <div class="ref-block-head">
+        <span class="badge badge-sierra">Sierra</span>
+        <h2>Vicuña</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Actualidad Ambiental. (2020, 28 de julio). <em>La vicuña: el camélido andino que se salvó de la extinción</em>. <a href="https://www.actualidadambiental.pe/vicuna-camelido-que-se-salvo-de-la-extincion/" target="_blank" rel="noopener">↗</a></li>
+        <li>PROMPERÚ. (s.f.). <em>La vicuña: el camélido representante de la fauna peruana es una especie protegida</em>. Perú Info. <a href="https://peru.info/es-pe/turismo/blogperu/3/17/la-vicuna--el-camelido-representante-de-la-fauna-peruana-es-una-especie-protegida" target="_blank" rel="noopener">↗</a></li>
+        <li>Agroempresario.com. (s.f.). <em>El chaccu, recuperación de una tradición Inca</em>. <a href="https://agroempresario.com/publicacion/38363/el-chaccu-recuperacion-de-una-tradicion-inca" target="_blank" rel="noopener">↗</a></li>
+        <li>El Comercio. (s.f.). <em>¿Qué es el chaccu de vicuñas? Así vivimos el ritual ancestral a más de 4 mil metros que protege a las vicuñas en Ayacucho e impulsa el turismo vivencial</em>. <a href="https://elcomercio.pe/somos/historias/que-es-el-chaccu-de-vicunas-asi-vivimos-el-ritual-ancestral-a-mas-de-4-mil-metros-que-protege-a-las-vicunas-en-ayacucho-e-impulsa-el-turismo-vivencial-noticia/" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="delfin">
+      <div class="ref-block-head">
+        <span class="badge badge-selva">Selva</span>
+        <h2>Delfín Rosado</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Jungle Experiences. (s.f.). <em>5 datos sorprendentes sobre el delfín rosado en Pacaya Samiria</em>. <a href="https://www.junglexperiences.com/es/blog/5-datos-sorprendentes-sobre-el-delfin-rosado-en-pacaya-samiria/" target="_blank" rel="noopener">↗</a></li>
+        <li>PROMPERÚ. (s.f.). <em>El delfín rosado del río Amazonas</em>. Perú Info. <a href="https://peru.info/es-pe/turismo/blogperu/3/18/el-delfin-rosado-del-rio-amazonas" target="_blank" rel="noopener">↗</a></li>
+        <li>Revista Pesquisa Javeriana. (s.f.). <em>Bufeos en la cúspide: delfines y los misterios de la evolución molecular</em>. Pontificia Universidad Javeriana. <a href="https://www.javeriana.edu.co/pesquisa/bufeos-en-la-cuspide/" target="_blank" rel="noopener">↗</a></li>
+        <li>Universidad Peruana Cayetano Heredia. (2024, 21 de marzo). <em>El delfín de río más grande de la historia habitó la proto-Amazonia peruana hace 16 millones de años</em>. Facultad de Ciencias e Ingeniería UPCH. <a href="https://ciencias.cayetano.edu.pe/noticias/el-delfin-de-rio-mas-grande-de-la-historia-habito-la-proto-amazonia-peruana-hace-16-millones-de-anos/" target="_blank" rel="noopener">↗</a></li>
+        <li>Benites-Palomino, A., Aguirre-Fernández, G., Ehret, D., Ali, J., Sánchez-Villagra, M., Tejada-Lara, J., De Muizon, C., &amp; Salas-Gismondi, R. (2024). The largest freshwater odontocete: A South Asian river dolphin relative from the proto-Amazonia. <em>Science Advances, 10</em>(12). <a href="https://doi.org/10.1126/sciadv.adk6320" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Bran, J. (2024). <em>Pebanista yacuruna</em> [reconstrucción artística]. Wikimedia Commons. <a href="https://upload.wikimedia.org/wikipedia/commons/f/f5/Pebanista_yacuruna_live_reconstruction.jpg" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="anguila">
+      <div class="ref-block-head">
+        <span class="badge badge-selva">Selva</span>
+        <h2>Anguila Eléctrica</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Infobae. (2024, 12 de octubre). <em>Descargas mortales: los secretos de las anguilas para generar electricidad</em>. <a href="https://www.infobae.com/mascotas/2024/10/12/descargas-mortales-los-secretos-de-las-anguilas-para-generar-electricidad/" target="_blank" rel="noopener">↗</a></li>
+        <li>National Geographic España. (s.f.). <em>Cómo generan electricidad las anguilas eléctricas</em>. <a href="https://www.nationalgeographic.com.es/mundo-animal/como-generan-electricidad-anguilas-electricas_26098" target="_blank" rel="noopener">↗</a></li>
+        <li>Fishipedia. (s.f.). <em>Electrophorus electricus</em>. <a href="https://www.fishipedia.es/pez/electrophorus-electricus" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="anaconda">
+      <div class="ref-block-head">
+        <span class="badge badge-selva">Selva</span>
+        <h2>Anaconda Verde</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>National Geographic España. (2025, 2 de diciembre). <em>«Las serpientes fósiles son extremadamente raras»: así llevan las anacondas desafiando a la evolución desde hace 12 millones de años</em>. <a href="https://www.nationalgeographic.com.es/ciencia/gigantes-sin-tiempo-anacondas-llevan-12-millones-anos-desafiando-evolucion_26885" target="_blank" rel="noopener">↗</a></li>
+        <li>National Geographic Latinoamérica. (s.f.). <em>¿Cuál es la serpiente más pesada y fuerte del mundo? Spoiler: es originaria de Sudamérica</em>. <a href="https://www.nationalgeographicla.com/animales/2025/08/cual-es-la-serpiente-mas-pesada-y-fuerte-del-mundo-spoiler-es-originaria-de-sudamerica" target="_blank" rel="noopener">↗</a></li>
+        <li>Fishipedia. (s.f.). <em>Eunectes murinus</em>. <a href="https://www.fishipedia.es/reptil/eunectes-murinus" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>National Geographic España. (s.f.). <em>Jaguar cazando anaconda en Brasil</em> [fotografía]. <a href="https://www.nationalgeographic.com.es/fotografia/foto-del-dia/brasil-reino-jaguar-anaconda-gigante_26846" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="jaguar">
+      <div class="ref-block-head">
+        <span class="badge badge-selva">Selva</span>
+        <h2>Jaguar</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Sampietro, L. (2019). <em>El jaguar</em>. La Reserva. <a href="https://www.lareserva.com/el_jaguar" target="_blank" rel="noopener">↗</a></li>
+        <li>Navarro, K. (2025). <em>El jaguar (Panthera onca)</em>. iPerú. <a href="https://iperu.pe/fauna/el-jaguar-panthera-onca/" target="_blank" rel="noopener">↗</a></li>
+        <li>Actualidad Ambiental. (2022, 15 de noviembre). <em>[Infografía] Jaguar en peligro: ¿por qué es importante conservar al felino más grande de América?</em> <a href="https://www.actualidadambiental.pe/infografia-jaguar-en-peligro-por-que-es-importante-conservar-al-felino-mas-grande-de-america/" target="_blank" rel="noopener">↗</a></li>
+        <li>Crónicas de Fauna. (2021, 7 de mayo). <em>El jaguar: el emperador de las Américas</em>. <a href="https://cronicasdefauna.blogspot.com/2021/05/el-jaguar-el-emperador-de-las-americas.html" target="_blank" rel="noopener">↗</a></li>
+        <li>National Geographic Latinoamérica. (s.f.). <em>Jaguar</em>. <a href="https://www.nationalgeographicla.com/animales/2020/04/jaguar" target="_blank" rel="noopener">↗</a></li>
+        <li>Veterinarios Sin Fronteras. (s.f.). <em>Panthera onca</em>. <a href="https://www.veterinariosvs.org/panthera-onca/" target="_blank" rel="noopener">↗</a></li>
+        <li>BioWeb Ecuador. (s.f.). <em>Ficha especie: Panthera onca</em>. Pontificia Universidad Católica del Ecuador. <a href="https://bioweb.bio/faunaweb/mammaliaweb/FichaEspecie/Panthera%20onca" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Ford, I. (2024). <em>Deadly Bite</em> [fotografía]. Natural History Museum, Wildlife Photographer of the Year. <a href="https://www.nhm.ac.uk/wpy/gallery/2024-deadly-bite" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="caiman">
+      <div class="ref-block-head">
+        <span class="badge badge-selva">Selva</span>
+        <h2>Caimán Negro</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>National Geographic Latinoamérica. (2025, 10 de febrero). <em>Los 5 datos sobre el caimán negro, el caimán que vive en los ríos de la Amazonía</em>. <a href="https://www.nationalgeographicla.com/animales/2025/02/los-5-datos-sobre-el-caiman-negro-el-caiman-que-vive-en-los-rios-de-la-amazonia" target="_blank" rel="noopener">↗</a></li>
+        <li>Sydlowski, R. (2000). <em>Melanosuchus niger</em>. Animal Diversity Web. <a href="https://animaldiversity.org/accounts/Melanosuchus_niger/" target="_blank" rel="noopener">↗</a></li>
+        <li>Láminas y Aceros. (s.f.). <em>Caimán negro</em>. <a href="https://blog.laminasyaceros.com/blog/caim%C3%A1n-negro" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Caut, S. (2025). <em>Caimán negro</em> [fotografía]. National Geographic Latinoamérica. <a href="https://www.nationalgeographicla.com/animales/2025/02/los-5-datos-sobre-el-caiman-negro-el-caiman-que-vive-en-los-rios-de-la-amazonia" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="leon">
+      <div class="ref-block-head">
+        <span class="badge badge-costa">Costa</span>
+        <h2>Lobo Marino Sudamericano</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>Sistema de Información de Biodiversidad (SIB), Administración de Parques Nacionales de Argentina. (s.f.). <em>Otaria flavescens (lobo marino de un pelo)</em>. <a href="https://sib.gob.ar/especies/otaria-flavescens" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+
+      <p class="ref-sub">Créditos fotográficos</p>
+      <ul class="ref-list">
+        <li>Unsplash. (s.f.). <em>Grupo de leones marinos cerca del cuerpo de agua</em> [fotografía]. <a href="https://unsplash.com/es/fotos/grupo-de-leones-marinos-cerca-del-cuerpo-de-agua-FYD9W0BVUgc" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+    <section class="ref-block reveal" id="zorro">
+      <div class="ref-block-head">
+        <span class="badge badge-costa">Costa</span>
+        <h2>Zorro Costeño</h2>
+      </div>
+
+      <p class="ref-sub">Referencias</p>
+      <ul class="ref-list">
+        <li>SERPAR — Servicio de Parques de Lima. (s.f.). <em>Zorro costeño</em>. <a href="https://www.serpar.gob.pe/mundo-animal/zorro-costeno-01/" target="_blank" rel="noopener">↗</a></li>
+        <li>BioWeb Ecuador. (s.f.). <em>Ficha especie: Lycalopex sechurae</em>. Pontificia Universidad Católica del Ecuador. <a href="https://bioweb.bio/faunaweb/mammaliaweb/FichaEspecie/Lycalopex%20sechurae" target="_blank" rel="noopener">↗</a></li>
+      </ul>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Perú Evolutivo</div>
+  <div class="footer-meta">Proyecto Personal IB · Ignacio Arias<br>Lima, Perú · 2026</div>
+</footer>
+
+<script src="scroll.js"></script>
+</body>
+</html>
